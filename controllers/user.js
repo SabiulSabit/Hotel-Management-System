@@ -79,7 +79,14 @@ exports.postCreateAccount = (req, res, next) => {
 
 }
 
+//get request for category
+exports.getCategory = (req,res,next)=>{
+  
+   res.render('user/category',{user: ""});
+}
 
+
+//logout
 exports.logout = (req,res,next)=>{
    req.session.destroy();
    res.render('user/home',{user: ""});
