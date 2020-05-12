@@ -101,18 +101,20 @@
                 <%   } %>
                 <% if(err.length) { %>
                     <%  for(i=0 ;i<err.length;i++){%>
-                    <h3 style="color: #17b978;" class="text-center"><%=err[i]%></h3><br>
-                    <%   }%>
+                    <h3 style="color: #ff304f;" class="text-center"><%=err[i]%></h3><br>
+                    <%   } %>
                     <%   } %>
             <div class="row position">
 
                 <div class="col-lg-8 col-md-6 col-sm-12 text-center">
-                    <label>User Name</label>
-                    <input type="text" class="form-control" placeholder="User Name">
+                    <form action="/login" method="POST">
+                    <label>User Mail Address</label>
+                    <input type="text" name="mail" class="form-control" placeholder="Email" required>
                     <label>Password</label>
-                    <input type="password" class="form-control" placeholder="Password">
+                    <input type="password" name="pass" class="form-control" placeholder="Password" required>
                     <p><input type="checkbox"> Remember Password</p>
                     <input type="submit" value="Login" class="btn btn-info btn-lg">
+                </form>
                 </div>
 
             </div>
