@@ -12,8 +12,8 @@ router.route('/login')
 
 
 router.route('/createaccount') 
-       .get(userControler.getCreateAccount);  // get request for create account   
-
+       .get(userControler.getCreateAccount)   //get request for create account   
+       .post(userControler.postCreateAccount); //post request for create account   
 
 
 module.exports = router;

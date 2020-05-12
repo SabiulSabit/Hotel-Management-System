@@ -94,6 +94,16 @@
     <!-- login -->
     <section class="login">
         <div class="container mt-5 mb-5">
+            <% if(msg.length) { %>
+                <%  for(i=0 ;i<msg.length;i++){%>
+                <h3 style="color: #17b978;" class="text-center"><%=msg[i]%></h3><br>
+                <%   }%>
+                <%   } %>
+                <% if(err.length) { %>
+                    <%  for(i=0 ;i<err.length;i++){%>
+                    <h3 style="color: #17b978;" class="text-center"><%=err[i]%></h3><br>
+                    <%   }%>
+                    <%   } %>
             <div class="row position">
 
                 <div class="col-lg-8 col-md-6 col-sm-12 text-center">
