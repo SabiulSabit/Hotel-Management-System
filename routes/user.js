@@ -6,7 +6,14 @@ const router = express.Router();
 
 const userControler = require('../controllers/user');
 
-router.get('/',userControler.getHome);
+router.get('/',userControler.getHome); //home page 
+router.route('/login')
+       .get(userControler.getLogin) // get request for login
+
+
+router.route('/createaccount') 
+       .get(userControler.getCreateAccount);  // get request for create account   
+
 
 
 module.exports = router;
