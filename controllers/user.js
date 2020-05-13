@@ -103,7 +103,7 @@ exports.getCategory = (req,res,next)=>{
 
 //post request of category
 exports.postCategory = (req,res,next)=>{
-   console.log(req.body);
+   //console.log(req.body);
    var connectDB = mysql.createConnection({
       host: "localhost",
       user: "root",
@@ -114,12 +114,14 @@ exports.postCategory = (req,res,next)=>{
    data = "SELECT * "+
           " FROM  category "+
           " WHERE name = "+mysql.escape(req.body.cat)+
-          " AND type = "+mysql.escape(req.body.type);
+          " AND type = "+mysql.escape(req.body.type) + 
+          " AND available > 0";
    
    connectDB.query(data,(err,result)=>{
       if(err) throw err; //show if error found
       else { 
-         console.log(result);
+         //console.log(result);
+         return res.render('user/showCategory',{user: req.session.mail,rooms: result })
       }
    }) 
 
