@@ -127,6 +127,11 @@ exports.postCategory = (req,res,next)=>{
 
 }
 
+// get booking data 
+exports.postBooking = (req,res,next)=>{
+  // console.log(req.body);
+}
+
 //logout
 exports.logout = (req,res,next)=>{
    req.session.destroy();

@@ -18,6 +18,8 @@ router.route('/createaccount')
 router.route('/category')
        .get(userControler.authentication,userControler.getCategory) //get request for Category  
        .post(userControler.postCategory) //post request form the category
+router.route('/boooking')
+       .post(userControler.postBooking) //post booking data       
 
 router.get('/logout',userControler.logout); //logout       
 

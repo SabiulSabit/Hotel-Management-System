@@ -92,7 +92,6 @@
     <main>
 
 
-
         <!-- Room Start -->
         <section class="room-area r-padding1">
             <div class="container">
@@ -110,21 +109,33 @@
                 <div class="row">
                     <% if(rooms.length) { %>
                     <% for(i=0;i<rooms.length;i++){  %>
+
+
                     <div class="col-xl-4 col-lg-6 col-md-6">
                         <!-- Single Room -->
-                        <div class="single-room mb-50">
-                            <div class="room-img">
-                                <a href="#"><img src="<%=rooms[i].img%>" alt=""></a>
-                            </div>
-                            <div class="room-caption">
-                                <h3><a href="#"><%=rooms[i].type%></a></h3>
-                                <h5><%=rooms[i].dec%></h5>
-                                <div class="per-night">
-                                    <span><u>&#2547;</u><%=rooms[i].cost%> <span>/ par night</span></span>
+                        <form action="/boooking" method="POST">
+                            <input type="text" name="name" value="<%=rooms[i].name%>" hidden>
+                            <input type="text" name="type" value="<%=rooms[i].type%>" hidden>
+                            <input type="text" name="const" value="<%=rooms[i].cost%>" hidden>
+
+                            <div class="single-room mb-50">
+                                <div class="room-img">
+                                    <button type="submit">
+                                        <a href="#"><img src="<%=rooms[i].img%>" alt=""></a>
+                                    </button>
+                                </div>
+                                <div class="room-caption">
+
+                                    <h3><a href="#"><%=rooms[i].type%></a></h3>
+                                    <h5><%=rooms[i].dec%></h5>
+                                    <div class="per-night">
+                                        <span><u>&#2547;</u><%=rooms[i].cost%> <span>/ par night</span></span>
+                                    </div>
                                 </div>
                             </div>
-                        </div>
+
                     </div>
+                    </form>
                     <% } %>
                     <% } else{  %>
                     <h3 style="color: #ff304f;" class="text-center">No Room Available Right Now</h3><br>
@@ -135,8 +146,6 @@
 
         </section>
         <!-- Room End -->
-
-
     </main>
 
     <footer>
