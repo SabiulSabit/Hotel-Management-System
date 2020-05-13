@@ -3,9 +3,26 @@ var mysql = require('mysql');
 
 
 
+//authentication check
+exports.authentication =(req,res,next)=>{
+    
+   if(req.session.mail != undefined){
+      next();
+   }
+   else{
+      res.render('user/home',{user: ""});
+   }
+}
+
 // show the home page
 exports.getHome = (req, res, next) => {
-   res.render('user/home',{user: ""});
+    
+   if(req.session.mail != undefined){
+    return  res.render('user/home',{user: req.session.mail}); 
+   }
+   else{
+      return  res.render('user/home',{user: ""});
+   }
 }
 
 //show the login page
@@ -76,15 +93,37 @@ exports.postCreateAccount = (req, res, next) => {
          res.render('user/loginAccount', {user: "", msg: ["Account Create Successfuly"], err: [] }); //show login page
       }
    })
-
 }
 
 //get request for category
 exports.getCategory = (req,res,next)=>{
   
-   res.render('user/category',{user: ""});
+   res.render('user/category',{user: req.session.mail });
 }
 
+//post request of category
+exports.postCategory = (req,res,next)=>{
+   console.log(req.body);
+   var connectDB = mysql.createConnection({
+      host: "localhost",
+      user: "root",
+      password: "",
+      database: "hotel"
+   });
+
+   data = "SELECT * "+
+          " FROM  category "+
+          " WHERE name = "+mysql.escape(req.body.cat)+
+          " AND type = "+mysql.escape(req.body.type);
+   
+   connectDB.query(data,(err,result)=>{
+      if(err) throw err; //show if error found
+      else { 
+         console.log(result);
+      }
+   }) 
+
+}
 
 //logout
 exports.logout = (req,res,next)=>{
