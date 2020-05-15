@@ -89,53 +89,55 @@
         <!-- Header End -->
     </header>
     <main>
+    
 
+        
 
-        <!-- Dining Start -->
-        <div class="dining-area dining-padding-top">
-            <!-- Single Left img -->
-            <div class="single-dining-area left-img">
-                <div class="container">
-                    <div class="row justify-content-end">
-                        <div class="col-lg-8 col-md-8">
-                            <div class="dining-caption">
-                                <span>Our Hotel</span>
-                                <h3>Dining & Drinks</h3>
-                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod<br> tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim <br>veniam, quis nostrud.</p>
-                                <a href="#" class="btn border-btn">Learn More <i class="ti-angle-right"></i> </a>
-                            </div>
+        <div class="booking-area">
+            <div class="container">
+               <div class="row ">
+               <div class="col-12">
+               
+                <form action="/status" method="post">
+                <div class="booking-wrap d-flex justify-content-between align-items-center">
+                 
+                    <!-- select in date -->
+                    <h1><%=name%></h1>
+                    <h1><%=type%></h1>
+                    <h1><%=cost%></h1>
+                   <input type="hidden" name="name" value="<%=name%>">
+                   <input type="hidden" name="type" value="<%=type%>">
+                   <input type="hidden" name="cost" value="<%=cost%>">
+
+                    <div class="single-select-box mb-30">
+                        <!-- select out date -->
+                        <div class="boking-tittle">
+                            <span> Booking Date:</span>
                         </div>
-                    </div>
-                </div>
-            </div> 
-            <!-- single Right img -->
-           
-        </div>
-        <!-- Dining End -->
-
-  
-
-        <!-- Gallery img Start-->
-        <div class="gallery-area fix">
-            <div class="container-fluid p-0">
-                <div class="row">
-                    <div class="col-md-12">
-                        <div class="gallery-active owl-carousel">
-                            <div class="gallery-img">
-                                <a href="#"><img src="assets/img/gallery/gallery1.jpg" alt=""></a>
-                            </div>
-                            <div class="gallery-img">
-                                <a href="#"><img src="assets/img/gallery/gallery2.jpg" alt=""></a>
-                            </div>
-                            <div class="gallery-img">
-                                <a href="#"><img src="assets/img/gallery/gallery3.jpg" alt=""></a>
-                            </div>
+                        <!-- <div class="boking-datepicker"> -->
+                            <input type="date" id="datepicker1"  name="date"  required />
+                        <!-- </div> -->
+                   </div>
+                   <div class="single-select-box mb-30">
+                        <!-- select out date -->
+                        <div class="boking-tittle">
+                            <span> Room Want:</span>
                         </div>
-                    </div>
+                        <div>
+                            <input name="roomWant"  type="number" required placeholder="0" />
+                        </div>
+                   </div>
+                    <div class="single-select-box pt-45 mb-30">
+                        <input type="submit" class="btn select-btn" value="Confirm Booking" >
+                   </div>
+               
                 </div>
+            </form>
+               </div>
+               </div>
             </div>
         </div>
-        <!-- Gallery img End-->
+        <!-- Booking Room End-->
     </main>
 
    <footer>

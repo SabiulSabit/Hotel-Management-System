@@ -129,10 +129,38 @@ exports.postCategory = (req,res,next)=>{
 
 // get booking data 
 exports.postBooking = (req,res,next)=>{
-  console.log(req.body);
-
-  res.render('user/bookingConfirm.ejs',{user: req.session.mail});
+ // console.log(req.body);
+  
+  res.render('user/bookingConfirm.ejs',{user: req.session.mail,name: req.body.name,type: req.body.type,cost: req.body.cost});
 }
+
+//post status request
+
+exports.postStatus = (req,res,next)=>{
+
+   //console.log(req.body);
+   var connectDB = mysql.createConnection({
+      host: "localhost",
+      user: "root",
+      password: "",
+      database: "hotel"
+   });
+   var date = req.body.date;
+    //console.log(date)
+   data = "INSERT INTO bookingstatus "+ 
+         " VALUES ('"+req.session.mail+"','"+req.body.name+"','"+req.body.type+"','"+req.body.roomWant+"','"+0+"','"+date+"')"
+
+ 
+   connectDB.query(data,(err,result)=>{
+      if(err) throw err;
+      else{
+       //  console.log(done);
+      }
+   })      
+
+}
+
+
 
 //logout
 exports.logout = (req,res,next)=>{
