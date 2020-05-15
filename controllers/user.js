@@ -150,11 +150,23 @@ exports.postStatus = (req,res,next)=>{
    data = "INSERT INTO bookingstatus "+ 
          " VALUES ('"+req.session.mail+"','"+req.body.name+"','"+req.body.type+"','"+req.body.roomWant+"','"+0+"','"+date+"')"
 
- 
-   connectDB.query(data,(err,result)=>{
+         data1 = "SELECT * "+
+         " FROM  bookingstatus "+
+         " WHERE email = "+mysql.escape(req.session.mail);
+   connectDB.query(data,(err,reslt)=>{
       if(err) throw err;
       else{
-       res.render('user/statusShow',{user: req.session.mail});
+         connectDB.query(data1,(err1,result)=>{
+            for(i in result){
+               var a =  result[i].date
+               a = a.toString()
+                  result[i].date =a.slice(0, 15); 
+               }
+
+                  res.render('user/statusShow',{user: req.session.mail ,msg: "Your booking is placed",err: "" ,data: result});
+
+         })
+       //res.render('user/statusShow',{user: req.session.mail ,msg: "Your booking is placed", err: "" ,data: result});
       }
    })      
 }
@@ -183,12 +195,16 @@ exports.getShowStatus = (req,res,next)=>{
          a = a.toString()
             result[i].date =a.slice(0, 15); 
          }
-         err="";
+        
          if (result.length<1)
          {
-            err="You dont have any data"
+            
+            res.render('user/statusShow',{user: req.session.mail ,msg:"", err: "You dont have any data" ,data: result});
          }
-         res.render('user/statusShow',{user: req.session.mail ,msg: [], err: err ,data: result});
+         else{
+            res.render('user/statusShow',{user: req.session.mail ,msg: "",err: "" ,data: result});
+         }
+        
       }
   })         
 

@@ -94,7 +94,7 @@
            <!-- Header Start -->
         <% if(msg.length) { %>
            
-            <h3 style="color: #17b978;" class="text-center"><%=msg[i]%></h3><br>
+            <h3 style="color: #17b978;" class="text-center"><%=msg%></h3><br>
            
             <%   } %>
             <% if(err.length) { %>
@@ -103,7 +103,7 @@
 
                 <%   } %>
               
-        <% if(!err.length){ %>
+        <% if(err.length == 0 ){ %>
            
                 <table>
                     <tr border="1">
