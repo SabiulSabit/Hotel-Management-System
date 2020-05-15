@@ -129,7 +129,9 @@ exports.postCategory = (req,res,next)=>{
 
 // get booking data 
 exports.postBooking = (req,res,next)=>{
-  // console.log(req.body);
+  console.log(req.body);
+
+  res.render('user/bookingConfirm.ejs',{user: req.session.mail});
 }
 
 //logout
