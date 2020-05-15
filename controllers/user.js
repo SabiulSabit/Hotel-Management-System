@@ -154,11 +154,13 @@ exports.postStatus = (req,res,next)=>{
    connectDB.query(data,(err,result)=>{
       if(err) throw err;
       else{
-       //  console.log(done);
+       res.render('user/statusShow',{user: req.session.mail});
       }
    })      
-
 }
+
+
+//get status
 
 
 
