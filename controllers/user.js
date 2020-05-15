@@ -161,8 +161,38 @@ exports.postStatus = (req,res,next)=>{
 
 
 //get status
+exports.getShowStatus = (req,res,next)=>{
+   
+   var connectDB = mysql.createConnection({
+      host: "localhost",
+      user: "root",
+      password: "",
+      database: "hotel"
+   });
 
+   data = "SELECT * "+
+           " FROM  bookingstatus "+
+           " WHERE email = "+mysql.escape(req.session.mail);
+   
+  connectDB.query(data,(err,result)=>{
+       
+      if(err) throw err;
+      else{
+         for(i in result){
+         var a =  result[i].date
+         a = a.toString()
+            result[i].date =a.slice(0, 15); 
+         }
+         err="";
+         if (result.length<1)
+         {
+            err="You dont have any data"
+         }
+         res.render('user/statusShow',{user: req.session.mail ,msg: [], err: err ,data: result});
+      }
+  })         
 
+}
 
 //logout
 exports.logout = (req,res,next)=>{

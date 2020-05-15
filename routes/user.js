@@ -22,7 +22,10 @@ router.route('/boooking')
        .post(userControler.postBooking) //post booking data    
        
 router.route('/status')
-       .post(userControler.postStatus);       
+       .post(userControler.postStatus); 
+
+router.route('/showStatus')
+       .get(userControler.authentication,userControler.getShowStatus);// get show status              
 
 router.get('/logout',userControler.logout); //logout       
 

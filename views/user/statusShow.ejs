@@ -43,7 +43,7 @@
     <!-- Preloader Start -->
 
     <header>
-        <!-- Header Start -->
+       
        <div class="header-area header-sticky">
             <div class="main-header ">
                 <div class="container">
@@ -62,6 +62,7 @@
                                         <li><a href="/">Home</a></li>
                                         <% if(user.length){ %>
                                         <li><a href="/category">Category</a></li>
+                                        <li><a href="/showStatus">Status</a></li>
                                         <li><a href="/logout">Logout</a></li>
                                         <%  } else { %>
                                         <li><a href="/login">Login</a></li>
@@ -90,26 +91,43 @@
     </header>
     <main>
 
-          
-    
-            <table>
-               <tr border="1">
-                  <th>Name</th>
-                  <th>Date</th>
-                  <th>Category</th>
-                  <th>Type</th>
-                  <th>Status</th>
-               </tr>
-               <tr>
-                  <td>Ramesh Raman</td>
-                  <td>5000</td>
-                  <td>Ramesh </td>
-                  <td>Ramesh</td>
-                  <td>Ramesh </td>
-               </tr>
-               
+           <!-- Header Start -->
+        <% if(msg.length) { %>
            
-            </table>
+            <h3 style="color: #17b978;" class="text-center"><%=msg[i]%></h3><br>
+           
+            <%   } %>
+            <% if(err.length) { %>
+                
+                <h3 style="color: #ff304f;" class="text-center"><%=err%></h3><br>
+
+                <%   } %>
+              
+        <% if(!err.length){ %>
+           
+                <table>
+                    <tr border="1">
+                       <th>Name</th>
+                       <th>Date</th>
+                       <th>Category</th>
+                       <th>Type</th>
+                       <th>Status</th>
+                    </tr>
+                    <% for(i in data){  %>
+     
+                    <tr>
+                       <td><%=data[i].email%></td>
+                       <td><%=data[i].date%></td>
+                       <td><%=data[i].category%> </td>
+                       <td><%=data[i].type%></td>
+                       <td><%=data[i].status%></td>
+                    </tr>
+                   <%   } %>
+                 </table>
+                 <%   } %>
+
+      
+            
 
        
     </main>
