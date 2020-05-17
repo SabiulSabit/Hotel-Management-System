@@ -24,6 +24,9 @@ router.route('/search')
 
 router.route('/update')
       .post(adminControler.getUpdate) //get update page for post request
+      
+router.route('/updateData')
+      .post(adminControler.updatePrevData) // update prev data      
 
 
 module.exports = router;

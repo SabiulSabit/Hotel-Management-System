@@ -157,8 +157,45 @@ exports.postSearch = (req,res,next)=>{
 
  //get update page 
  exports.getUpdate = (req,res,next)=>{
-     console.log(req.body);
-     res.render('admin/updatePage')
+    // console.log(req.body);
+     var connectDB = mysql.createConnection({
+        host: "localhost",
+        user: "root",
+        password: "",
+        database: "hotel"
+    });
+    
+    data =  "SELECT * "+
+             "FROM category "+
+             "WHERE name = "+mysql.escape(req.body.cat)+
+             " AND type = "+mysql.escape(req.body.type)+
+             " AND cost = "+mysql.escape(req.body.cost);  
+
+    connectDB.query(data,(err,result)=>{
+        if(err) throw err;
+        else{
+            res.render('admin/updatePage',{data: result[0]});
+        }
+    })
+    
+ }
+
+ //update previous data
+
+ exports.updatePrevData =(req,res,next)=>{
+     
+    var connectDB = mysql.createConnection({
+        host: "localhost",
+        user: "root",
+        password: "",
+        database: "hotel"
+    });
+    
+    data = "UPDATE category "+
+           "SET type = "+mysql.escape(req.body.type)+
+           " cost = "+mysql.escape(req.body.type)+
+           " "
+
  }
  
 

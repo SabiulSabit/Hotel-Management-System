@@ -76,19 +76,17 @@
       <div class="container-fluid">
         <div class="row">
           <div class="col-lg-4 text-center middleposition">
-            <p>NOT DONE YET</p>
+           
             <p>Category</p>
-            <input type="text" class="form-control" name="cat" placeholder="Category name">
+            <input type="text" class="form-control" name="cat" value="<%=data.name%>" readonly>
             <p>Room Type</p>
-            <input type="text" class="form-control" name="type" placeholder="Room Type">
+            <input type="text" class="form-control" name="type" value="<%=data.type%>">
             <p>Per Night Cost</p>
-            <input type="number" class="form-control" placeholder="Per Night Cost">
+            <input type="number" class="form-control" name="cost" value="<%=data.cost%>">
             <p>Room Availavle</p>
-            <input type="number" class="form-control" placeholder="Room Availavle">
+            <input type="number" class="form-control" name="avlvl" value="<%=data.available%>">
             <p>Add Some Description</p>
-            <input type="text" class="form-control" placeholder="Add Some Description">
-            <p>Add Image</p>
-            <input type="text" class="form-control" placeholder="Add Some Description">
+            <input type="text" class="form-control" name="des"  value="<%=data.dec%>">
 
             <input type="submit" class="btn btn-lg btn-success mt-3" value="Update">
           </div>
