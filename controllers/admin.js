@@ -122,15 +122,45 @@ exports.postChnageStatus = (req, res, next) => {
 //get add hotel page
 
 exports.getAddHotel =(req,res,next)=>{
-    res.render('admin/addhotel',{ msg: "", err: "",});
+    res.render('admin/addhotel',{ msg: "", err: ""});
 }
 
 
 //get update page
-exports.getUpdate =(req,res,next)=>{
+exports.getSearch =(req,res,next)=>{
   res.render('admin/search')
 }
 
+//post request
+exports.postSearch = (req,res,next)=>{
+    //console.log(req.body);
+
+    var connectDB = mysql.createConnection({
+        host: "localhost",
+        user: "root",
+        password: "",
+        database: "hotel"
+    });
+
+    data = "SELECT * "+
+           "FROM category "+
+           "WHERE name = "+mysql.escape(req.body.cat);
+
+    connectDB.query(data,(err,result)=>{
+        if(err) throw err;
+        else{
+            return res.render('admin/update',{msg: "", err: "",data:result});
+        }
+    })       
+    
+ }
+
+ //get update page 
+ exports.getUpdate = (req,res,next)=>{
+     console.log(req.body);
+     res.render('admin/updatePage')
+ }
+ 
 
 //logout
 exports.logout = (req, res, next) => {

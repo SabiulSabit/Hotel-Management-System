@@ -18,8 +18,12 @@ router.post('/chnagestatus',adminControler.postChnageStatus)// post change statu
 router.route('/addhotel')
       .get(adminControler.getAddHotel) // get request for hotel add page
 
+router.route('/search')
+      .get(adminControler.getSearch)   // get request   
+      .post(adminControler.postSearch) // post request
+
 router.route('/update')
-      .get(adminControler.getUpdate)   // get request   
- 
+      .post(adminControler.getUpdate) //get update page for post request
+
 
 module.exports = router;
