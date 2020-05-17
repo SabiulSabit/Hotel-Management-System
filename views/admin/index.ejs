@@ -85,6 +85,7 @@
                   <th>Category</th>
                   <th>Type</th>
                   <th>Quantity</th>
+                  <th>Date</th>
                   <th>Status</th>
                 </tr>
               </thead>
@@ -97,8 +98,17 @@
                   <th><%=data[i].category%></th>
                   <th><%=data[i].type%></th>
                   <th><%=data[i].roomWant%></th>
-                  <th> <input type="submit" class="btn btn-success btn-ml" value="Approve">
-                       <input type="submit" class="btn btn-danger btn-ml" value="Cancel">
+                  <th><%=data[i].date%></th>
+                  <th>
+                    <form action="/admin/chnagestatus" method="POST">
+                      <input type="hidden" name="mail" value="<%=data[i].email%>">
+                      <input type="hidden" name="cat" value="<%=data[i].category%>">
+                      <input type="hidden" name="type" value="<%=data[i].type%>">
+                      <input type="hidden" name="want" value="<%=data[i].roomWant%>">
+                      <input type="hidden" name="date" value="<%=data[i].date%>">
+                    <input type="submit" class="btn btn-success btn-ml" name="click" value="Approve">
+                    <input type="submit" class="btn btn-danger btn-ml"  name="click" value="Cancel">
+                    </form> 
                   </th>
                 </tr>
                 <% } %>

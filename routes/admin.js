@@ -12,6 +12,8 @@ router.route('/')
    .post(adminControler.postLogin) // post request
 
 router.get('/logout',adminControler.logout) //get request   
+
+router.post('/chnagestatus',adminControler.postChnageStatus)// post change status
  
 
 module.exports = router;
