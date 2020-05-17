@@ -83,11 +83,16 @@ exports.postChnageStatus = (req, res, next) => {
         database: "hotel"
     });
 
+    var value = 0;
+
     if (req.body.click == "Approve") {
+         value = 1;
 
     } else {
+        value = -1;
+    }
         data = "UPDATE bookingstatus " +
-            " SET  status =-1 " +
+            " SET  status = " +mysql.escape(value)+
             " WHERE email = " + mysql.escape(req.body.mail) +
             " AND type = " + mysql.escape(req.body.type) +
             " AND category = " + mysql.escape(req.body.cat) +
@@ -111,13 +116,8 @@ exports.postChnageStatus = (req, res, next) => {
                 })
             }
         })
-
-
-    }
-
-
+    
 }
-
 
 
 //logout
