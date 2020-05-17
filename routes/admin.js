@@ -8,7 +8,8 @@ const adminControler = require('../controllers/admin');
 
 
 router.route('/')
-   .get(adminControler.login) //get request
+   .get(adminControler.getLogin) //get request
+   .post(adminControler.postLogin) // post request
  
 
 module.exports = router;
