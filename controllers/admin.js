@@ -214,7 +214,6 @@ exports.postSearch = (req,res,next)=>{
 
  }
  
-
 //logout
 exports.logout = (req, res, next) => {
     req.session.destroy();
