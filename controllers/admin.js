@@ -128,7 +128,7 @@ exports.getAddHotel =(req,res,next)=>{
 
 //get update page
 exports.getSearch =(req,res,next)=>{
-  res.render('admin/search')
+  res.render('admin/search',{msg: "", err: ""})
 }
 
 //post request
@@ -156,6 +156,7 @@ exports.postSearch = (req,res,next)=>{
  }
 
  //get update page 
+
  exports.getUpdate = (req,res,next)=>{
     // console.log(req.body);
      var connectDB = mysql.createConnection({
@@ -174,10 +175,10 @@ exports.postSearch = (req,res,next)=>{
     connectDB.query(data,(err,result)=>{
         if(err) throw err;
         else{
+            req.session.info= result[0];
             res.render('admin/updatePage',{data: result[0]});
         }
     })
-    
  }
 
  //update previous data
@@ -193,8 +194,23 @@ exports.postSearch = (req,res,next)=>{
     
     data = "UPDATE category "+
            "SET type = "+mysql.escape(req.body.type)+
-           " cost = "+mysql.escape(req.body.type)+
-           " "
+           ", cost = "+mysql.escape( parseInt(req.body.cost))+
+           ", available = "+mysql.escape( parseInt(req.body.avlvl))+
+           ", `dec` = "+mysql.escape(req.body.des) +
+           " WHERE name = "+mysql.escape(req.session.info.name) +
+           " AND type = "+mysql.escape(req.session.info.type) +
+           " AND cost = "+mysql.escape(parseInt(req.session.info.cost))
+
+    //  console.log(req.session.info);    
+    //  console.log(req.body); 
+    //  console.log(data);        
+
+   connectDB.query(data,(err,result)=>{
+       if(err) throw err;
+       else{
+        res.render('admin/search',{msg: "Update Done Successfuly", err: ""})
+       }
+   })
 
  }
  
