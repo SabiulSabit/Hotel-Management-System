@@ -119,6 +119,12 @@ exports.postChnageStatus = (req, res, next) => {
     
 }
 
+//get add hotel page
+
+exports.getAddHotel =(req,res,next)=>{
+    res.render('admin/addhotel',{ msg: "", err: "",});
+}
+
 
 //logout
 exports.logout = (req, res, next) => {
