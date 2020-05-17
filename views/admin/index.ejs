@@ -17,7 +17,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <meta name="description" content="">
   <meta name="author" content="">
-  <title>SB Admin - Start Bootstrap Template</title>
+  <title>Admin: Home</title>
   <!-- Bootstrap core CSS-->
   <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
   <!-- Custom fonts for this template-->
@@ -32,14 +32,14 @@
 <body class="fixed-nav sticky-footer bg-dark" id="page-top">
   <!-- Navigation-->
   <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top" id="mainNav">
-    <a class="navbar-brand" href="index.html">Start Bootstrap</a>
+    <a class="navbar-brand" href="index.html">Admin</a>
     <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
     <div class="collapse navbar-collapse" id="navbarResponsive">
       <ul class="navbar-nav navbar-sidenav" id="exampleAccordion">
         <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Dashboard">
-          <a class="nav-link" href="#">
+          <a class="nav-link" href="/admin/">
             <i class="fa fa-fw fa-dashboard"></i>
             <span class="nav-link-text">Dashboard</span>
           </a>
@@ -76,37 +76,38 @@
         <div class="card-body">
           <div class="table-responsive">
             <table class="table table-bordered text-center" id="dataTable" width="100%" cellspacing="0">
+              <% if(data.length) {  %>
+            
               <thead class="bg-primary text-white">
                 <tr>
-                  <th>No.</th>
-                  <th>Name</th>
-                  <th>mail</th>
-                  <th>Hotel Name</th>
+                  <th>SL No.</th>
+                  <th>Email</th>
+                  <th>Category</th>
+                  <th>Type</th>
+                  <th>Quantity</th>
                   <th>Status</th>
                 </tr>
               </thead>
 
               <tbody>
+                <% for (i in data) { %>
                 <tr>
-                  <th>01</th>
-                  <th>sid</th>
-                  <th>mail@gmail.com</th>
-                      <th>Hotel Name</th>
+                  <th><%=i%></th>
+                  <th><%=data[i].email%></th>
+                  <th><%=data[i].category%></th>
+                  <th><%=data[i].type%></th>
+                  <th><%=data[i].roomWant%></th>
                   <th> <input type="submit" class="btn btn-success btn-ml" value="Approve">
                        <input type="submit" class="btn btn-danger btn-ml" value="Cancel">
                   </th>
                 </tr>
-                <tr>
-                  <th>02</th>
-                  <th>sid</th>
-                  <th>mail@gmail.com</th>
-                      <th>Hotel Name</th>
-                  <th> <input type="submit" class="btn btn-success btn-ml" value="Approve">
-                       <input type="submit" class="btn btn-danger btn-ml" value="Cancel">
-                  </th>
-                </tr>
+                <% } %>
+                
               </tbody>
             </table>
+            <%   } else { %>
+               <h3 style="color: #ff304f;" class="text-center">No Data Found</h3><br>
+              <% } %>
           </div>
         </div>
 
