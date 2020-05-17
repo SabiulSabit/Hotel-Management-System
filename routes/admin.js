@@ -16,7 +16,10 @@ router.get('/logout',adminControler.logout) //get request
 router.post('/chnagestatus',adminControler.postChnageStatus)// post change status
 
 router.route('/addhotel')
-      .get(adminControler.getAddHotel)
+      .get(adminControler.getAddHotel) // get request for hotel add page
+
+router.route('/update')
+      .get(adminControler.getUpdate)   // get request   
  
 
 module.exports = router;

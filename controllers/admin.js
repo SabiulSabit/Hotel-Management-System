@@ -126,6 +126,12 @@ exports.getAddHotel =(req,res,next)=>{
 }
 
 
+//get update page
+exports.getUpdate =(req,res,next)=>{
+  res.render('admin/search')
+}
+
+
 //logout
 exports.logout = (req, res, next) => {
     req.session.destroy();
