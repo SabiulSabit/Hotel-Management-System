@@ -25,7 +25,9 @@ router.route('/status')
        .post(userControler.postStatus); 
 
 router.route('/showStatus')
-       .get(userControler.authentication,userControler.getShowStatus);// get show status              
+       .get(userControler.authentication,userControler.getShowStatus);// get show status      
+       
+router.get('/contact',userControler.getContact);       
 
 router.get('/logout',userControler.logout); //logout       
 

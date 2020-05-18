@@ -203,6 +203,17 @@ exports.getShowStatus = (req, res, next) => {
 }
 
 
+//show contact page
+exports.getContact =(req,res,next)=>{
+   if(req.session.mail== undefined){
+      res.render('user/contact', { user: "" });
+   }
+   else{
+      res.render('user/contact', { user: req.session.mail });
+   }
+   
+}
+
 //logout
 exports.logout = (req, res, next) => {
    req.session.destroy();

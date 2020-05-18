@@ -52,20 +52,25 @@
                         <!-- logo -->
                         <div class="col-xl-2 col-lg-2">
                             <div class="logo">
-                               <a href="index.html"><img src="assets/img/logo/logo.png" alt=""></a>
+                               <a href="/"><img src="assets/img/logo/logo.png" alt=""></a>
                             </div>
                         </div>
                     <div class="col-xl-10 col-lg-10 col-md-10 col-sm-10">
                             <!-- main-menu -->
                             <div class="main-menu f-right d-none d-lg-block">
                                 <nav>
-                                    <ul id="navigation">                                                                                                                                     
-                                        <li><a href="index.html">Home</a></li>
-                                        <li><a href="about.html">About</a></li>
-                                        <li><a href="services.html">Service</a></li>
-                                    
-                                    
-                                        <li><a href="contact.html">Contact</a></li>
+                                    <ul id="navigation">
+                                        <li><a href="/">Home</a></li>
+                                        <% if(user.length){ %>
+                                        <li><a href="/category">Category</a></li>
+                                        <li><a href="/showStatus">Status</a></li>
+                                        <li><a href="/contact">Contact</a></li>
+                                        <li><a href="/logout">Logout</a></li>
+                                        <%  } else { %>
+                                        <li><a href="/login">Login</a></li>
+                                        <li><a href="/createaccount">Create Account</a></li>
+                                        <li><a href="/contact">Contact</a></li>
+                                        <% } %>
                                     </ul>
                                 </nav>
                             </div>
@@ -94,8 +99,8 @@
                         <h2 class="contact-title">About Us Page</h2>
                     </div>
                     <div class="col-lg-8">
-                      <h3>Name: Sbiual hajjaj</h3>
-                      <p>address: dhanmondi party center,Dhaka</p>
+                      <h3>Name: Shorna & Faria</h3>
+                      <p>Address: UIU,Badda,Dhaka</p>
                     </div>
                     <div class="col-lg-3 offset-lg-1">
                         <div class="media contact-info">
