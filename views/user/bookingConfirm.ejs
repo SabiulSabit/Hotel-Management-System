@@ -25,10 +25,20 @@
         <link rel="stylesheet" href="assets/css/nice-select.css">
         <link rel="stylesheet" href="assets/css/style.css">
         <link rel="stylesheet" href="assets/css/responsive.css">
+        <style media="screen">
+          .position{
+            margin-left: 50%;
+            transform: translate(-50%,0);
+          }
+          .positionbtn{
+            margin-left: 50%;
+            transform: translate(-50%,0);
+          }
+        </style>
    </head>
 
    <body>
-       
+
     <!-- Preloader Start -->
     <div id="preloader-active">
         <div class="preloader d-flex align-items-center justify-content-center">
@@ -54,7 +64,7 @@
                                <a href="index.html"><img src="assets/img/logo/logo.png" alt=""></a>
                             </div>
                         </div>
-                    <div class="col-xl-8 col-lg-8">
+                    <div class="col-xl-10 col-lg-10 col-md-10 col-sm-10">
                             <!-- main-menu -->
                             <div class="main-menu f-right d-none d-lg-block">
                                 <nav>
@@ -72,13 +82,8 @@
                                     </ul>
                                 </nav>
                             </div>
-                        </div>             
-                        <div class="col-xl-2 col-lg-2">
-                            <!-- header-btn -->
-                            <div class="header-btn">
-                                <a href="#" class="btn btn1 d-none d-lg-block ">Book Online</a>
-                            </div>
                         </div>
+
                         <!-- Mobile Menu -->
                         <div class="col-12">
                             <div class="mobile_menu d-block d-lg-none"></div>
@@ -90,54 +95,47 @@
         <!-- Header End -->
     </header>
     <main>
-    
 
-        
 
-        <div class="booking-area">
+
+
+
             <div class="container">
                <div class="row ">
-               <div class="col-12">
-               
-                <form action="/status" method="post">
-                <div class="booking-wrap d-flex justify-content-between align-items-center">
-                 
-                    <!-- select in date -->
-                    <h1><%=name%></h1>
-                    <h1><%=type%></h1>
-                    <h1><%=cost%></h1>
+                 <div class="col-12 mt-5">
+                   <form action="/status" method="post">
+
+                 <h2 class="text-center text-primary">Categhory: <%=name%></h2>
+                 <h2 class="text-center text-success">Room Type: <%=type%></h2>
+                 <h2 class="text-center text-info">Room Cost: <%=cost%></h2>
+</div>
+                <div class="col-lg-4 col-md-12 col-md-12 position">
                    <input type="hidden" name="name" value="<%=name%>">
                    <input type="hidden" name="type" value="<%=type%>">
                    <input type="hidden" name="cost" value="<%=cost%>">
 
-                    <div class="single-select-box mb-30">
-                        <!-- select out date -->
-                        <div class="boking-tittle">
+                        <div class="boking-tittle text-center mt-3 mb-3">
                             <span> Booking Date:</span>
+                            <input type="date" name="date" class="form-control text-center" required />
                         </div>
-                        <!-- <div class="boking-datepicker"> -->
-                            <input type="date" id="datepicker1"  name="date"  required />
-                        <!-- </div> -->
-                   </div>
-                   <div class="single-select-box mb-30">
-                        <!-- select out date -->
-                        <div class="boking-tittle">
+
+                        <div class="boking-tittle text-center mt-3 mb-3">
                             <span> Room Want:</span>
+                            <input name="roomWant"  type="number" class="form-control" required placeholder="0" />
                         </div>
-                        <div>
-                            <input name="roomWant"  type="number" required placeholder="0" />
-                        </div>
-                   </div>
-                    <div class="single-select-box pt-45 mb-30">
-                        <input type="submit" class="btn select-btn" value="Confirm Booking" >
-                   </div>
-               
+
+
                 </div>
-            </form>
-               </div>
-               </div>
+
+<div class="col-lg-12 col-md-12 col-sm-12">
+  <input type="submit" class="btn btn-info mt-3 mb-5 positionbtn" value="Confirm Booking" >
+</div>
+               </form>
+
+             </div>
+             </div>
             </div>
-        </div>
+
         <!-- Booking Room End-->
     </main>
 
@@ -224,10 +222,10 @@
    </footer>
 
 <!-- JS here -->
-	
+
 		<!-- All JS Custom Plugins Link Here here -->
         <script src="./assets/js/vendor/modernizr-3.5.0.min.js"></script>
-		
+
 		<!-- Jquery, Popper, Bootstrap -->
 		<script src="./assets/js/vendor/jquery-1.12.4.min.js"></script>
         <script src="./assets/js/popper.min.js"></script>
@@ -243,23 +241,23 @@
 		<!-- One Page, Animated-HeadLin -->
         <script src="./assets/js/wow.min.js"></script>
 		<script src="./assets/js/animated.headline.js"></script>
-		
+
 		<!-- Scrollup, nice-select, sticky -->
         <script src="./assets/js/jquery.scrollUp.min.js"></script>
         <script src="./assets/js/jquery.nice-select.min.js"></script>
 		<script src="./assets/js/jquery.sticky.js"></script>
         <script src="./assets/js/jquery.magnific-popup.js"></script>
-        
+
         <!-- contact js -->
         <script src="./assets/js/contact.js"></script>
         <script src="./assets/js/jquery.form.js"></script>
         <script src="./assets/js/jquery.validate.min.js"></script>
         <script src="./assets/js/mail-script.js"></script>
         <script src="./assets/js/jquery.ajaxchimp.min.js"></script>
-        
-		<!-- Jquery Plugins, main Jquery -->	
+
+		<!-- Jquery Plugins, main Jquery -->
         <script src="./assets/js/plugins.js"></script>
         <script src="./assets/js/main.js"></script>
-        
+
     </body>
 </html>

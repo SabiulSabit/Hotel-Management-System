@@ -55,7 +55,7 @@
                                 <a href="index.html"><img src="assets/img/logo/logo.png" alt=""></a>
                             </div>
                         </div>
-                        <div class="col-xl-8 col-lg-8">
+                        <div class="col-xl-10 col-lg-10 col-md-10 col-sm-10">
                             <!-- main-menu -->
                             <div class="main-menu f-right d-none d-lg-block">
                                 <nav>
@@ -74,12 +74,7 @@
                                 </nav>
                             </div>
                         </div>
-                        <div class="col-xl-2 col-lg-2">
-                            <!-- header-btn -->
-                            <div class="header-btn">
-                                <a href="#" class="btn btn1 d-none d-lg-block ">Book Online</a>
-                            </div>
-                        </div>
+                    
                         <!-- Mobile Menu -->
                         <div class="col-12">
                             <div class="mobile_menu d-block d-lg-none"></div>
@@ -94,10 +89,10 @@
 
 
         <!-- Room Start -->
-        <section class="room-area r-padding1">
+        <section class="room-area">
             <div class="container">
-                <div class="row justify-content-center">
-                    <div class="col-xl-8">
+                <div class="row">
+                    <div class="col-lg-12 col-lg-12 col-sm-12 col-12">
                         <!--font-back-tittle  -->
                         <div class="font-back-tittle mb-45">
                             <div class="archivment-front">
@@ -106,13 +101,12 @@
                             <h3 class="archivment-back">Our Rooms</h3>
                         </div>
                     </div>
-                </div>
-                <div class="row">
+
                     <% if(rooms.length) { %>
                     <% for(i=0;i<rooms.length;i++){  %>
 
 
-                    <div class="col-xl-4 col-lg-6 col-md-6">
+                    <div class="col-xl-4 col-lg-4 col-md-12 col-12">
                         <!-- Single Room -->
                         <form action="/boooking" method="POST">
                             <input type="text" name="name" value="<%=rooms[i].name%>" hidden>
@@ -120,17 +114,17 @@
                             <input type="text" name="cost" value="<%=rooms[i].cost%>" hidden>
 
                             <div class="single-room mb-50">
-                                <div class="room-img">
-                                   
-                                        <a href="#"><img src="<%=rooms[i].img%>" alt=""></a>
-                                
+                                <div class="room-img p-2">
+
+                                        <a href="#"><img src="<%=rooms[i].img%>" alt="" height="200px"></a>
+
                                 </div>
-                                <div class="room-caption">
+                                <div class="room-caption text-center">
 
                                     <h3><a href="#"><%=rooms[i].type%></a></h3>
                                     <h5><%=rooms[i].dec%></h5>
                                     <div class="per-night">
-                                        <span><u>&#2547;</u><%=rooms[i].cost%> <span>/ par night</span></span>
+                                        <span>&#2547; <%=rooms[i].cost%> <span>/ par night</span></span>
                                     </div>
                                     <input type="submit" class="btn btn-danger" value="Book Now!!">
                                 </div>
@@ -140,7 +134,11 @@
                     </form>
                     <% } %>
                     <% } else{  %>
-                    <h3 style="color: #ff304f;" class="text-center">No Room Available Right Now</h3><br>
+                      <br>
+                <div class="col-lg-12 col-md-12 col-sm-12">
+                      <h2 style="color: #ff304f;" class="text-center mt-5 mb-5">No Room Available Right Now</h2>
+                </div>
+                    <br>
                     <%  }  %>
 
                 </div>

@@ -6,8 +6,8 @@
 	  Support:
 	  Description:
 	  Version:
-	  
-------------------------------------------------- 
+
+-------------------------------------------------
 */
 /* CSS Index
 -------------------------------------------------
@@ -22,14 +22,14 @@
 	8. video-area
 	9. counter
 	10. footer
-	
+
 -------------------------------------------------
 */
 /*
- 
+
 	@include transition(.4s);
 	color:$theme-color;
-	
+
 */
 @import url("https://fonts.googleapis.com/css?family=Lato:300,400,700,900|Noto+Serif:400,400i,700&display=swap");
 .boxed-btn {
@@ -1655,8 +1655,8 @@ label {
     padding-top: 0px; } }
 
 .footer-padding {
-  padding-top: 150px;
-  padding-bottom: 130px; }
+  padding-top: 40px;
+  padding-bottom: 30px; }
   @media only screen and (min-width: 992px) and (max-width: 1200px) {
     .footer-padding {
       padding-top: 100px;
@@ -1798,7 +1798,9 @@ label {
 
 .main-header {
   position: relative;
-  z-index: 3; }
+  z-index: 3;
+  background-color: white
+ }
   .main-header .main-menu ul li {
     display: inline-block;
     position: relative;
@@ -3599,10 +3601,10 @@ label {
 
 /*============ End Blog Single Styles  =============*/
 /*
- 
+
 	@include transition(.4s);
 	color:$theme-color;
-	
+
 */
 .boxed-btn {
   background: #fff;

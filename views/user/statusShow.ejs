@@ -25,10 +25,19 @@
         <link rel="stylesheet" href="assets/css/nice-select.css">
         <link rel="stylesheet" href="assets/css/style.css">
         <link rel="stylesheet" href="assets/css/responsive.css">
+        <style media="screen">
+          .errposition{
+            width: 100%;
+            height: 200px;
+          }
+          .errposition h3{
+            margin-top: 100px;
+          }
+        </style>
    </head>
 
    <body>
-       
+
     <!-- Preloader Start -->
     <div id="preloader-active">
         <div class="preloader d-flex align-items-center justify-content-center">
@@ -43,7 +52,7 @@
     <!-- Preloader Start -->
 
     <header>
-       
+
        <div class="header-area header-sticky">
             <div class="main-header ">
                 <div class="container">
@@ -54,7 +63,7 @@
                                <a href="index.html"><img src="assets/img/logo/logo.png" alt=""></a>
                             </div>
                         </div>
-                    <div class="col-xl-8 col-lg-8">
+                    <div class="col-xl-10 col-lg-10 col-md-10 col-sm-10">
                             <!-- main-menu -->
                             <div class="main-menu f-right d-none d-lg-block">
                                 <nav>
@@ -72,13 +81,8 @@
                                     </ul>
                                 </nav>
                             </div>
-                        </div>             
-                        <div class="col-xl-2 col-lg-2">
-                            <!-- header-btn -->
-                            <div class="header-btn">
-                                <a href="#" class="btn btn1 d-none d-lg-block ">Book Online</a>
-                            </div>
                         </div>
+
                         <!-- Mobile Menu -->
                         <div class="col-12">
                             <div class="mobile_menu d-block d-lg-none"></div>
@@ -92,44 +96,58 @@
     <main>
 
            <!-- Header Start -->
-        <% if(msg.length) { %>
-           
-            <h3 style="color: #17b978;" class="text-center"><%=msg%></h3><br>
-           
-            <%   } %>
-            <% if(err.length) { %>
-                
-                <h3 style="color: #ff304f;" class="text-center"><%=err%></h3><br>
+
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-12 mb-5 mt-5">
+            <% if(msg.length) { %>
+
+                <h3 style="color: #17b978;" class="text-center"><%=msg%></h3><br>
 
                 <%   } %>
-              
-        <% if(err.length == 0 ){ %>
-           
-                <table>
-                    <tr border="1">
-                       <th>Name</th>
-                       <th>Date</th>
-                       <th>Category</th>
-                       <th>Type</th>
-                       <th>Status</th>
-                    </tr>
-                    <% for(i in data){  %>
-     
-                    <tr>
-                       <td><%=data[i].email%></td>
-                       <td><%=data[i].date%></td>
-                       <td><%=data[i].category%> </td>
-                       <td><%=data[i].type%></td>
-                       <td><%=data[i].status%></td>
-                    </tr>
-                   <%   } %>
-                 </table>
-                 <%   } %>
+                <% if(err.length) { %>
 
-      
-            
+<div class="errposition">
+  <h3 style="color: #ff304f;" class="text-center"><%=err%></h3>
+</div>
 
-       
+
+                    <%   } %>
+
+            <% if(err.length == 0 ){ %>
+
+                    <table class="table">
+                        <thead class="thead-dark">
+                          <tr border="1">
+                             <th>Name</th>
+                             <th>Date</th>
+                             <th>Category</th>
+                             <th>Type</th>
+                             <th>Status</th>
+                          </tr>
+                        </thead>
+                        <% for(i in data){  %>
+
+                        <tbody>
+                          <tr>
+                             <td><%=data[i].email%></td>
+                             <td><%=data[i].date%></td>
+                             <td><%=data[i].category%> </td>
+                             <td><%=data[i].type%></td>
+                             <td><%=data[i].status%></td>
+                          </tr>
+                        </tbody>
+                       <%   } %>
+                     </table>
+                     <%   } %>
+          </div>
+        </div>
+      </div>
+
+
+
+
+
     </main>
 
    <footer>
@@ -215,10 +233,10 @@
    </footer>
 
 <!-- JS here -->
-	
+
 		<!-- All JS Custom Plugins Link Here here -->
         <script src="./assets/js/vendor/modernizr-3.5.0.min.js"></script>
-		
+
 		<!-- Jquery, Popper, Bootstrap -->
 		<script src="./assets/js/vendor/jquery-1.12.4.min.js"></script>
         <script src="./assets/js/popper.min.js"></script>
@@ -234,23 +252,23 @@
 		<!-- One Page, Animated-HeadLin -->
         <script src="./assets/js/wow.min.js"></script>
 		<script src="./assets/js/animated.headline.js"></script>
-		
+
 		<!-- Scrollup, nice-select, sticky -->
         <script src="./assets/js/jquery.scrollUp.min.js"></script>
         <script src="./assets/js/jquery.nice-select.min.js"></script>
 		<script src="./assets/js/jquery.sticky.js"></script>
         <script src="./assets/js/jquery.magnific-popup.js"></script>
-        
+
         <!-- contact js -->
         <script src="./assets/js/contact.js"></script>
         <script src="./assets/js/jquery.form.js"></script>
         <script src="./assets/js/jquery.validate.min.js"></script>
         <script src="./assets/js/mail-script.js"></script>
         <script src="./assets/js/jquery.ajaxchimp.min.js"></script>
-        
-		<!-- Jquery Plugins, main Jquery -->	
+
+		<!-- Jquery Plugins, main Jquery -->
         <script src="./assets/js/plugins.js"></script>
         <script src="./assets/js/main.js"></script>
-        
+
     </body>
 </html>

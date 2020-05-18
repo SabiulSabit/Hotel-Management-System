@@ -28,8 +28,8 @@
     <link rel="stylesheet" href="assets/css/responsive.css">
     <style media="screen">
         .position {
-            margin-left: 57%;
-            transform: translate(-57%, 0);
+            margin-left: 50%;
+            transform: translate(-50%, 0);
         }
     </style>
 </head>
@@ -61,7 +61,7 @@
                                 <a href="index.html"><img src="assets/img/logo/logo.png" alt=""></a>
                             </div>
                         </div>
-                        <div class="col-xl-8 col-lg-8">
+                        <div class="col-xl-10 col-lg-10 col-md-10 col-sm-10">
                             <!-- main-menu -->
                             <div class="main-menu f-right d-none d-lg-block">
                                 <nav>
@@ -74,12 +74,7 @@
                                 </nav>
                             </div>
                         </div>
-                        <div class="col-xl-2 col-lg-2">
-                            <!-- header-btn -->
-                            <div class="header-btn">
-                                <a href="#" class="btn btn1 d-none d-lg-block ">Book Online</a>
-                            </div>
-                        </div>
+                    
                         <!-- Mobile Menu -->
                         <div class="col-12">
                             <div class="mobile_menu d-block d-lg-none"></div>
@@ -99,9 +94,9 @@
             <h3 style="color: #ff304f;" class="text-center"><%=err[i]%></h3><br>
             <%   }%>
             <%   } %>
-            <div class="row position">
+            <div class="row">
 
-                <div class="col-lg-8 col-md-6 col-sm-12 text-center">
+                <div class="col-lg-4 col-md-6 col-sm-12 text-center position">
                     <form action="/createaccount" method="POST">
                         <label>User Name</label>
                         <input type="text" name="name" class="form-control" placeholder="User Name" required>
