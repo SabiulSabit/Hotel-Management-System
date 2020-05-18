@@ -17,6 +17,7 @@ router.post('/chnagestatus',adminControler.postChnageStatus)// post change statu
 
 router.route('/addhotel')
       .get(adminControler.getAddHotel) // get request for hotel add page
+      .post(adminControler.postAddHotel) // post request for hotel add to db
 
 router.route('/search')
       .get(adminControler.getSearch)   // get request   

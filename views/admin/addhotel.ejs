@@ -35,7 +35,7 @@
   <body class="fixed-nav sticky-footer bg-dark" id="page-top">
     <!-- Navigation-->
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top" id="mainNav">
-      <a class="navbar-brand"  href="/admin/">Admin</a>
+      <a class="navbar-brand" href="/admin/">Admin</a>
       <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse"
         data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false"
         aria-label="Toggle navigation">
@@ -76,21 +76,28 @@
       <div class="container-fluid">
         <div class="row">
           <div class="col-lg-4 text-center middleposition">
-            <p>NOT DONE YET</p>
-            <p>Category</p>
-            <input type="text" class="form-control" name="cat" placeholder="Category name">
-            <p>Room Type</p>
-            <input type="text" class="form-control" name="type" placeholder="Room Type">
-            <p>Per Night Cost</p>
-            <input type="number" class="form-control" placeholder="Per Night Cost">
-            <p>Room Availavle</p>
-            <input type="number" class="form-control" placeholder="Room Availavle">
-            <p>Add Some Description</p>
-            <input type="text" class="form-control" placeholder="Add Some Description">
-            <p>Add Image</p>
-            <input type="text" class="form-control" placeholder="Add Some Description">
+            <% if(msg) { %>
+            <h3 style="color: #17b978;" class="text-center"><%=msg%></h3><br>
+            <%   } %>
+            <% if(err) { %>
+            <h3 style="color: #ff304f;" class="text-center"><%=err%></h3><br>
+            <%   } %>
+            <form action="/admin/addhotel" method="POST" enctype="multipart/form-data">
+              <p>Category</p>
+              <input type="text" class="form-control" name="cat" placeholder="Category name">
+              <p>Room Type</p>
+              <input type="text" class="form-control" name="type" placeholder="Room Type">
+              <p>Per Night Cost</p>
+              <input type="number" class="form-control" name="cost" placeholder="Per Night Cost">
+              <p>Room Availavle</p>
+              <input type="number" class="form-control" name="avlvl" placeholder="Room Availavle">
+              <p>Add Some Description</p>
+              <input type="text" class="form-control" name="des" placeholder="Add Some Description">
+              <p>Add Image</p>
+              <input type="file" class="form-control" name="img" placeholder="Add Image">
 
-            <input type="submit" class="btn btn-lg btn-success mt-3" value="Update">
+              <input type="submit" class="btn btn-lg btn-success mt-3" value="Add">
+            </form>
           </div>
         </div>
 
