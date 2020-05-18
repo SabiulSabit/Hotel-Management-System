@@ -177,14 +177,13 @@ exports.postAddHotel = (req, res, next) => {
                 if (name === "img") {
                     imgPath = (cat + type + cost + "." + fileType);
                 }
-
-                file.path = a + '/public/uploads/' + (cat + type + cost + "." + fileType); // __dirname
+                imgPath ='/assets/img/rooms/' + (cat + type + cost + "." + fileType)
+                file.path = a + '/public/assets/img/rooms/' + (cat + type + cost + "." + fileType); // __dirname
             } else {
                 console.log("Wrong File type")
                 wrong = 1;
                 res.render('admin/addhotel', { msg: "", err: "Wrong File type" });
             }
-
         })
         .on('aborted', () => {
             console.error('Request aborted by the user')
