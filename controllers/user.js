@@ -81,7 +81,7 @@ exports.postCreateAccount = (req, res, next) => {
    var p2 = req.body.con_pass;
 
    if (p1 != p2) { // if password doesn't match 
-      return res.render("user//createAccount", { user: "", msg: [], err: ["Password Doesn't Match"] })
+      return res.render("user/createAccount", { user: "", msg: [], err: ["Password Doesn't Match"] })
    }
 
    var data = "INSERT INTO user " +
