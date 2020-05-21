@@ -45,12 +45,13 @@ exports.postLogin = (req, res, next) => {
       "WHERE email = " + mysql.escape(req.body.mail) +
       " AND password = " + mysql.escape(req.body.pass);
 
+
    connectDB.query(data, (err, result) => {
       if (err) throw err; // show if any error have
       else {
          if (result.length) {
             req.session.mail = result[0].email;
-            res.render('user/home', { user: result[0].email });
+            res.render('user/home', {user: result[0].email});
          }
          else {
             res.render('user/loginAccount', { user: "", msg: [], err: ["Please Check Your information again"] });
