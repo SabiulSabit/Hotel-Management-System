@@ -206,7 +206,27 @@ exports.getShowStatus = (req, res, next) => {
 
 //delete booking request
 exports.deleteBooking =(req,res,next)=>{
-   console.log(req.body);
+   //console.log(req.body);
+   var connectDB = mysql.createConnection({
+      host: "localhost",
+      user: "root",
+      password: "",
+      database: "hotel"
+   });
+
+   data = "DELETE FROM bookingstatus " +
+   " WHERE email = " + mysql.escape(req.body.mail) +
+   " AND type = " + mysql.escape(req.body.type) +
+   " AND category = " + mysql.escape(req.body.cat)+
+   " AND roomWant = "+mysql.escape(req.body.want)
+  
+   connectDB.query(data,(err,result)=>{
+      if(err) throw err;
+      else{
+         next();
+      }
+   })
+
 }
 
 
