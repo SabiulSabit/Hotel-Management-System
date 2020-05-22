@@ -90,16 +90,21 @@ exports.postChnageStatus = (req, res, next) => {
 
     if (req.body.click == "Approve") {
         value = 1;
-
-    } else {
-        value = -1;
-    }
-    data = "UPDATE bookingstatus " +
+        data = "UPDATE bookingstatus " +
         " SET  status = " + mysql.escape(value) +
         " WHERE email = " + mysql.escape(req.body.mail) +
         " AND type = " + mysql.escape(req.body.type) +
         " AND category = " + mysql.escape(req.body.cat) +
         " AND roomWant = " + mysql.escape(req.body.want)
+
+    } else {
+        data = "DELETE FROM bookingstatus " +
+        " WHERE email = " + mysql.escape(req.body.mail) +
+        " AND type = " + mysql.escape(req.body.type) +
+        " AND category = " + mysql.escape(req.body.cat) +
+        " AND roomWant = " + mysql.escape(req.body.want)
+    }
+    
     data1 = "SELECT * " +
         "FROM  bookingstatus " +
         "WHERE status = 0 ";
