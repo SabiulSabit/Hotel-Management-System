@@ -204,6 +204,12 @@ exports.getShowStatus = (req, res, next) => {
 }
 
 
+//delete booking request
+exports.deleteBooking =(req,res,next)=>{
+   console.log(req.body);
+}
+
+
 //show contact page
 exports.getContact =(req,res,next)=>{
    if(req.session.mail== undefined){

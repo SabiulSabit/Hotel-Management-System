@@ -39,6 +39,9 @@
             margin-top: 55px;
             margin-bottom: 55px;
         }
+        .buttonDelete{
+            padding: 20px;
+        }
     </style>
 </head>
 
@@ -145,11 +148,17 @@
                                 <% if(data[i].status == 1){ %>
                                     <td style="color: #17b978;" class="text-center">Approved</td>
                                 <% }  else if(data[i].status == 0){ %>
-                                    <td style="color: #f0da16;" class="text-center">Pending</td>
-                                <%  } else{  %>
-                                    <td style="color: #ff304f;" class="text-center">Cancled</td>
+                                    <td style="color: #f0da16;" class="text-center">Pending
+                                    <form action="/deletereq"  method="POST"> 
+                                        <input type="text" name="mail" value="<%=data[i].email%>" hidden>
+                                        <input type="text" name="date" value="<%=data[i].date%>" hidden>
+                                        <input type="text" name="cat" value="<%=data[i].category%>" hidden>
+                                        <input type="text" name="type" value="<%=data[i].type%>" hidden>
+                                        <input type="submit" value="Delete" style="background-color: #ff304f;" class="text-center btn btn-danger buttonDelete">
+                                    </td>
+                                    </form>
                                 <%  } %>
-                            
+
                             </tr>
                         </tbody>
                         <%   } %>

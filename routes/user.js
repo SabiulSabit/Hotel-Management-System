@@ -26,7 +26,9 @@ router.route('/status')
        .post(userControler.postStatus); 
 
 router.route('/showStatus')
-       .get(userControler.authentication,userControler.getShowStatus);// get show status      
+       .get(userControler.authentication,userControler.getShowStatus);// get show status
+
+router.post('/deletereq',userControler.deleteBooking);       
        
 router.get('/contact',userControler.getContact);       
 
