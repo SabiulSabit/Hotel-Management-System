@@ -135,6 +135,7 @@ exports.getAddHotel = (req, res, next) => {
 
 //add new hotel info
 exports.postAddHotel = (req, res, next) => {
+   
     var connectDB = mysql.createConnection({
         host: "localhost",
         user: "root",
@@ -206,7 +207,7 @@ exports.postAddHotel = (req, res, next) => {
 
                 //saveDir = __dirname + '/uploads/';
                 
-                  data = "INSERT INTO `category`(`name`, `type`, `cost`, `available`, `img`, `dec`) "+
+                data = "INSERT INTO `category`(`name`, `type`, `cost`, `available`, `img`, `dec`) "+
                          "VALUES('" +cat + "','" + type + "', '" + cost + "','" +avlvl + "' ,'" + imgPath + "' ,'" + des + "' )"
                 connectDB.query(data, (err, result) => {
 

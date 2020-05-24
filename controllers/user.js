@@ -154,6 +154,7 @@ exports.postStatus = (req, res, next) => {
    data1 = "SELECT * " +
       " FROM  bookingstatus " +
       " WHERE email = " + mysql.escape(req.session.mail);
+      
    connectDB.query(data, (err, reslt) => {
       if (err) throw err;
       else {
