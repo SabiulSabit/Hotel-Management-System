@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: May 19, 2020 at 08:49 AM
+-- Generation Time: May 25, 2020 at 03:37 PM
 -- Server version: 10.4.6-MariaDB
 -- PHP Version: 7.3.9
 
@@ -60,7 +60,7 @@ CREATE TABLE `bookingstatus` (
 --
 
 INSERT INTO `bookingstatus` (`email`, `category`, `type`, `roomWant`, `status`, `date`) VALUES
-('iamsabit99@gmail.com', 'Business Class ', 'Single Bed', 2, 1, '2020-05-21');
+('iamsabit99@gmail.com', 'Business Class ', 'Single Bed', 21, 0, '2020-05-03');
 
 -- --------------------------------------------------------
 
@@ -83,9 +83,10 @@ CREATE TABLE `category` (
 
 INSERT INTO `category` (`name`, `type`, `cost`, `available`, `img`, `dec`) VALUES
 ('Business Class ', 'Double Bed', 1200, 11, '/assets/img/rooms/room1.jpg', 'Non AC Room'),
-('Business Class ', 'Double Bed', 2000, 7, '/assets/img/rooms/room2.jpg', 'AC Room'),
+('Business Class ', 'Double Bed', 2005, 9, '/assets/img/rooms/room2.jpg', 'AC Room'),
 ('Business Class ', 'Single Bed', 800, 10, '/assets/img/rooms/room3.jpg', 'Non AC Room'),
-('Business Class ', 'Single Bed', 1200, 10, '/assets/img/rooms/room4.jpg', 'AC Room');
+('Business Class ', 'Single Bed', 1200, 10, '/assets/img/rooms/room4.jpg', 'AC Room'),
+('First class', 'Double Bed', 1357, 24, '/assets/img/rooms/First classDouble Bed1357.png', 'This is a good room');
 
 -- --------------------------------------------------------
 
@@ -106,7 +107,8 @@ CREATE TABLE `user` (
 
 INSERT INTO `user` (`name`, `email`, `phone`, `password`) VALUES
 ('admin', 'admin@admin.com', '1', '1'),
-('Sabit', 'iamsabit99@gmail.com', '01744248058', '1');
+('Sabit', 'iamsabit99@gmail.com', '01744248058', '1'),
+('Sabit', 'st.sabit13@gmail.com', '01744248058', '1');
 
 --
 -- Indexes for dumped tables

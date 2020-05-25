@@ -116,7 +116,7 @@ exports.postChnageStatus = (req, res, next) => {
                 if (err1) throw err1;
                 else {
                     for (i in result1) {
-                        var a = result1[i].date;
+                        var a = result1[i].date; 
                         result1[i].date = a.toString().slice(0, 15);
                     }
                     return res.render('admin/index', { msg: "", err: "", data: result1 });
